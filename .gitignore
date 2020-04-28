@@ -34,3 +34,6 @@
 # Other
 *.win
 *.layout
+Encrypt/
+Decrypt/
+Done/
