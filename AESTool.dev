@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit1]
-FileName=AESTool.cpp
+FileName=main.cpp
 CompileCpp=1
 Folder=
 Compile=1

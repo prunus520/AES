@@ -11,7 +11,7 @@ PAES_context PAES_create(const char* mode, unsigned short blockSize, unsigned ch
 	setMode(ctx, mode);
 	setBlock(ctx, blockSize, iv);
 	setKey(ctx, keySize, key);
-    setPadding(ctx, padding);
+  setPadding(ctx, padding);
     
 	return ctx;
 }
@@ -68,8 +68,8 @@ void setIV(PAES_context ctx, unsigned char* iv){
 	for(; i < ctx->blockSize / 8 + 1; i++){
 		iv_temp[i] = 0x00;  //  複製先前的 IV 
 	}
-	if(ctx->iv != NULL)
-		free(ctx->iv);
+//	if(ctx->iv != NULL)
+//		free(ctx->iv);
 	ctx->iv = iv_temp;
 }
 
@@ -87,8 +87,8 @@ void setKeySize(PAES_context ctx, unsigned short keySize){
 	ctx->keySize = keySize;
 	ctx->Nk = keySize / 32;
 	ctx->Nr = 6 + (ctx->Nb > ctx->Nk ? ctx->Nb : ctx->Nk);  //  6 + max ( Nb, Nk ) 
-	if(ctx->ExpandedKey.EKey08 != NULL)
-		free(ctx->ExpandedKey.EKey08);
+//	if(ctx->ExpandedKey.EKey08 != NULL)
+//		free(ctx->ExpandedKey.EKey08);
 	ctx->ExpandedKey.EKey08 = (unsigned char*)malloc(sizeof(unsigned char) * 4 * ctx->Nb * (1 + ctx->Nr));  //  開啟相對應的金鑰擴展大小 
 }
 
@@ -106,8 +106,8 @@ void setKEY(PAES_context ctx, unsigned char* key){
 	for(; i < ctx->keySize / 8 + 1; i++){
 		key_temp[i] = 0x00;  //  複製先前的 IV 
 	}
-	if(ctx->key != NULL)
-		free(ctx->key);
+//	if(ctx->key != NULL)
+//		free(ctx->key);
 	ctx->key = key_temp;
 }
 
